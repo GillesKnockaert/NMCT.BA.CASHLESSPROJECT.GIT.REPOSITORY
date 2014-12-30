@@ -1,0 +1,74 @@
+﻿@model IEnumerable<nmct.ba.cashlessproject.model.Registers>
+
+@{
+    ViewBag.Title = "Kassa's";
+}
+
+<h2>Lijst van alle kassa's</h2>
+
+<p>
+    @Html.ActionLink("Nieuwe kassa aanmaken", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Device)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpiresDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Organisation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (nmct.ba.cashlessproject.model.Registers item in ViewBag.Registers)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegisterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Device)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpiresDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Organisation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID, org = item.Organisation })
+        </td>
+    </tr>
+}
+</table>
+<br />
+<br />
+<br />
+
+<h2>Verenigingen</h2>
+<table class="table">
+    @foreach (string item in ViewBag.Verenigingen)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+            <td>
+                @Html.ActionLink("Geef alle kassa's", "GetRegisters", new { org = item })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="nmct.ba.cashlessproject.uiklant.View.Registreren"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:v="clr-namespace:nmct.ba.cashlessproject.uiklant.View"
+             xmlns:vm="clr-namespace:nmct.ba.cashlessproject.uiklant.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.DataContext>
+        <vm:RegistrerenVM/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="57*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource Title}" Text="Registreren" Margin="103,10,104,10" Grid.ColumnSpan="2" Width="393"/>
+        <Label Style="{StaticResource BoldLabel}" Margin="10,10,0,39" Content="Gelieve uw identiteitskaart in te scannen met de eID Reader" Grid.Row="1" Width="580" Grid.ColumnSpan="2"/>
+
+        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource Button}" Content="Gegevens" Command="{Binding GoToGegevensVM}" Margin="10" Width="Auto"/>
+        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource Button}" Content="Terug" Command="{Binding GoToWelkomVM}" Margin="10" Width="Auto"/>
+
+    </Grid>
+</UserControl>

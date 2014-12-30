@@ -1,0 +1,28 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.uiklant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:nmct.ba.cashlessproject.uiklant.View"
+        xmlns:vm="clr-namespace:nmct.ba.cashlessproject.uiklant.ViewModel"
+        Title="Klant" Height="300" Width="600">
+    <Window.DataContext>
+        <vm:ApplicationVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:WelkomVM}">
+            <v:Welkom/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:GegevensVM}">
+            <v:Gegevens/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OpladenVM}">
+            <v:Opladen/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:RegistrerenVM}">
+            <v:Registreren/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <ContentControl Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="7" Content="{Binding CurrentPage}"/>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.manageui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:nmct.ba.cashlessproject.manageui.View"
+        xmlns:vm="clr-namespace:nmct.ba.cashlessproject.manageui.ViewModel"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:ApplicationVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:PageOneVM}">
+            <v:PageOne/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Pages}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
+    </Grid>
+</Window>

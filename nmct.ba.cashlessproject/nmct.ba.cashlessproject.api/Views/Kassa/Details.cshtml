@@ -1,0 +1,51 @@
+﻿@model nmct.ba.cashlessproject.model.Registers
+
+<div>
+    <h3>Details van kassa</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Device)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Device)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiresDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiresDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organisation)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Terug naar lijst van kassa's", "Index")
+</p>
